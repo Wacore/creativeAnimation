@@ -29,3 +29,43 @@ button.addEventListener("click", () => {
     ease: "power3.out",
   });
 });
+
+// to repeat the animation, use yoyo attribute. EX: yoyo: 2 repeat twice, yoyo: -1 infinite.
+
+// fade in effect
+function fadeIn(obj) {
+  tl.fromTo(
+    obj,
+    { y: 30, opacity: 0 },
+    { y: 0, opacity: 1, ease: "power1.out", duration: 0.75 }
+  );
+}
+
+// fade out effect
+function fadeOut(obj) {
+  tl.fromTo(
+    obj,
+    { y: 0, opacity: 1 },
+    { y: 30, opacity: 0, ease: "power1.out", duration: 0.75 }
+  );
+}
+
+/* schema for prop 
+prop {
+  from: {
+    y: value,
+     opacity: value
+  },
+  to: {
+    y: value,
+    opacity: value,
+    ease: "power1.out",
+    duration: 0.75 
+  }
+}
+ */
+
+// improvement
+function face(obj, prop) {
+  tl.fromTo(obj, prop.from, prop.to);
+}
