@@ -10,3 +10,14 @@ tl.fromTo(".cta6", { opacity: 0, x: '-100%' }, { opacity: 1, x: 0 }, "<50%");
 tl.fromTo(".cta5", { opacity: 0, y: '100%' }, { opacity: 1, y: 0 }, "<50%");
 
 tl.fromTo(".cta-button", { opacity: 0, y: 30 }, { opacity: 1, y: 0 });
+
+const logoText = document.querySelector('.logo');
+const logoChar = logoText.textContent.split('');
+
+logoText.innerHTML = "";
+
+logoChar.forEach(c => {
+    logoText.innerHTML += `<span class="letter">${c}</span>`
+})
+gsap.set(".letter", { display: "inline-block" });
+gsap.fromTo('.letter', { y: '100%', opacity: 0 }, { y: 0, opacity: 1, delay: 2, stagger: 0.2, ease: "back.out(1.7)" })
